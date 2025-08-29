@@ -1,0 +1,36 @@
+# Archivos de entorno (no subir credenciales reales)
+.env
+.env.*          # ignorar cualquier archivo de entorno adicional
+!.env.example   # salvo el archivo de ejemplo
+
+# Archivos de sistema
+.DS_Store
+Thumbs.db
+
+# WordPress core y archivos descargables automáticamente
+wordpress/core/   # si tienes el core en esa carpeta, ignóralo
+wordpress/wp-admin/
+wordpress/wp-includes/
+
+# Ignorar todo excepto wp-content (temas y plugins)
+wordpress/*
+!wordpress/wp-content/
+wordpress/wp-content/*
+!wordpress/wp-content/themes/
+!wordpress/wp-content/plugins/
+
+# Base de datos y backups
+db_data/
+*.sql
+*.sql.gz
+*.bak
+
+# Logs
+*.log
+
+# Node o vendor si los usas
+node_modules/
+vendor/
+
+# Docker overrides locales (opcional)
+docker-compose.override.yml
