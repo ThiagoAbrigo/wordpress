@@ -1,7 +1,7 @@
 # Archivos de entorno (no subir credenciales reales)
 .env
-.env.*          # ignorar cualquier archivo de entorno adicional
-!.env.example   # salvo el archivo de ejemplo
+.env.*
+!.env.example
 
 # Archivos de sistema
 .DS_Store
