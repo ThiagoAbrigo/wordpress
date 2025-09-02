@@ -1,22 +1,28 @@
-version: "3.9"
+version: '3.9'
+
 services:
   wordpress:
     image: wordpress:latest
     container_name: wordpress_stage
     ports:
       - "8081:80"
-    env_file:
-      - .env.stage
+    environment:
+      WORDPRESS_DB_HOST: db_stage
+      WORDPRESS_DB_USER: stage_user
+      WORDPRESS_DB_PASSWORD: stage_pass
+      WORDPRESS_DB_NAME: wp_stage
     volumes:
-      - ./wordpress_stage:/var/www/html/wp-content
-    depends_on:
-      - db
+      - ./wordpress_data:/var/www/html
 
   db:
     image: mysql:8.0
-    container_name: mysql_stage
-    env_file:
-      - .env.stage
+    container_name: db_stage
+    restart: always
+    environment:
+      MYSQL_DATABASE: wp_stage
+      MYSQL_USER: stage_user
+      MYSQL_PASSWORD: stage_pass
+      MYSQL_ROOT_PASSWORD: root_stage
     volumes:
       - db_data_stage:/var/lib/mysql
 
