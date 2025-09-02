@@ -7,17 +7,17 @@
 .DS_Store
 Thumbs.db
 
-# WordPress core y archivos descargables automáticamente
-wordpress/core/   # si tienes el core en esa carpeta, ignóralo
-wordpress/wp-admin/
-wordpress/wp-includes/
+# Configuración sensible
+wp-config.php
+.htaccess
 
-# Ignorar todo excepto wp-content (temas y plugins)
-wordpress/*
-!wordpress/wp-content/
-wordpress/wp-content/*
-!wordpress/wp-content/themes/
-!wordpress/wp-content/plugins/
+# Cachés y uploads
+wp-content/cache/
+wp-content/uploads/
+wp-content/advanced-cache.php
+wp-content/object-cache.php
+wp-content/wp-cache-config.php
+
 
 # Base de datos y backups
 db_data/
@@ -27,10 +27,3 @@ db_data/
 
 # Logs
 *.log
-
-# Node o vendor si los usas
-node_modules/
-vendor/
-
-# Docker overrides locales (opcional)
-docker-compose.override.yml
